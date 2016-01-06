@@ -13,6 +13,9 @@
 		08DB1C221C3CC14F00624EBA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08DB1C201C3CC14F00624EBA /* LaunchScreen.storyboard */; };
 		08DB1C2D1C3CC14F00624EBA /* Music_FeedTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DB1C2C1C3CC14F00624EBA /* Music_FeedTests.m */; };
 		08DB1C381C3CC14F00624EBA /* Music_FeedUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DB1C371C3CC14F00624EBA /* Music_FeedUITests.m */; };
+		08DB1C491C3CC39800624EBA /* MusicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DB1C481C3CC39800624EBA /* MusicViewController.m */; };
+		08DB1C4A1C3CC39800624EBA /* MusicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DB1C481C3CC39800624EBA /* MusicViewController.m */; };
+		08DB1C4B1C3CC39800624EBA /* MusicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DB1C481C3CC39800624EBA /* MusicViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +49,8 @@
 		08DB1C331C3CC14F00624EBA /* Music FeedUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Music FeedUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		08DB1C371C3CC14F00624EBA /* Music_FeedUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Music_FeedUITests.m; sourceTree = "<group>"; };
 		08DB1C391C3CC14F00624EBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		08DB1C471C3CC39800624EBA /* MusicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicViewController.h; sourceTree = "<group>"; };
+		08DB1C481C3CC39800624EBA /* MusicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,9 +103,8 @@
 			children = (
 				08DB1C1B1C3CC14F00624EBA /* AppDelegate.h */,
 				08DB1C1C1C3CC14F00624EBA /* AppDelegate.m */,
-				08DB1C1E1C3CC14F00624EBA /* Assets.xcassets */,
-				08DB1C201C3CC14F00624EBA /* LaunchScreen.storyboard */,
-				08DB1C231C3CC14F00624EBA /* Info.plist */,
+				08DB1C461C3CC35A00624EBA /* Screens */,
+				08DB1C451C3CC33D00624EBA /* Resources */,
 				08DB1C181C3CC14F00624EBA /* Supporting Files */,
 			);
 			path = "Music Feed";
@@ -109,6 +113,7 @@
 		08DB1C181C3CC14F00624EBA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				08DB1C231C3CC14F00624EBA /* Info.plist */,
 				08DB1C191C3CC14F00624EBA /* main.m */,
 			);
 			name = "Supporting Files";
@@ -130,6 +135,24 @@
 				08DB1C391C3CC14F00624EBA /* Info.plist */,
 			);
 			path = "Music FeedUITests";
+			sourceTree = "<group>";
+		};
+		08DB1C451C3CC33D00624EBA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				08DB1C201C3CC14F00624EBA /* LaunchScreen.storyboard */,
+				08DB1C1E1C3CC14F00624EBA /* Assets.xcassets */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		08DB1C461C3CC35A00624EBA /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				08DB1C471C3CC39800624EBA /* MusicViewController.h */,
+				08DB1C481C3CC39800624EBA /* MusicViewController.m */,
+			);
+			name = Screens;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,6 +284,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08DB1C491C3CC39800624EBA /* MusicViewController.m in Sources */,
 				08DB1C1D1C3CC14F00624EBA /* AppDelegate.m in Sources */,
 				08DB1C1A1C3CC14F00624EBA /* main.m in Sources */,
 			);
@@ -270,6 +294,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08DB1C4A1C3CC39800624EBA /* MusicViewController.m in Sources */,
 				08DB1C2D1C3CC14F00624EBA /* Music_FeedTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -278,6 +303,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08DB1C4B1C3CC39800624EBA /* MusicViewController.m in Sources */,
 				08DB1C381C3CC14F00624EBA /* Music_FeedUITests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -478,6 +504,7 @@
 				08DB1C3E1C3CC14F00624EBA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		08DB1C3F1C3CC14F00624EBA /* Build configuration list for PBXNativeTarget "Music FeedTests" */ = {
 			isa = XCConfigurationList;
@@ -486,6 +513,7 @@
 				08DB1C411C3CC14F00624EBA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		08DB1C421C3CC14F00624EBA /* Build configuration list for PBXNativeTarget "Music FeedUITests" */ = {
 			isa = XCConfigurationList;
@@ -494,6 +522,7 @@
 				08DB1C441C3CC14F00624EBA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

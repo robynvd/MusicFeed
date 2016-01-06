@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "MusicViewController.h"
 
 @interface AppDelegate ()
 
@@ -20,7 +21,12 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    MusicViewController *musicViewController = [[MusicViewController alloc] init];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:musicViewController];
+    self.window.rootViewController = navController;
     return YES;
+    
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
