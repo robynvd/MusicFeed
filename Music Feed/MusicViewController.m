@@ -7,6 +7,7 @@
 //
 
 #import "MusicViewController.h"
+#import "AddSongViewController.h"
 static NSString *const ReuseIdentifier = @"ReuseIdentifier";
 
 @interface MusicViewController () <UITableViewDataSource>
@@ -16,6 +17,9 @@ static NSString *const ReuseIdentifier = @"ReuseIdentifier";
 @end
 
 @implementation MusicViewController
+
+# pragma mark - Setup
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -34,7 +38,7 @@ static NSString *const ReuseIdentifier = @"ReuseIdentifier";
     [self.view addSubview:self.musicTable];
     
     //Add song Button
-    self.addSongButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:nil];
+    self.addSongButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addButtonTapped)];
     self.navigationItem.rightBarButtonItem = self.addSongButton;
      
      //Delete songs button
@@ -73,12 +77,21 @@ static NSString *const ReuseIdentifier = @"ReuseIdentifier";
                                     multiplier:1.0
                                       constant:0],
         
-        //Add song button constraints
-        
-        //Delete songs button constraints
     ]];
     
 }
+
+#pragma mark - Actions
+
+- (void)addButtonTapped
+{
+    NSLog(@"add button tapped");
+    AddSongViewController *addSongViewController = [[AddSongViewController alloc] init];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:addSongViewController];
+    [self presentViewController:navController animated:YES completion:nil];
+}
+
+#pragma mark - tableView Data Source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
