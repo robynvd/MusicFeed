@@ -86,7 +86,6 @@ static NSString *const ReuseIdentifier = @"ReuseIdentifier";
 
 - (void)addButtonTapped
 {
-    NSLog(@"add button tapped");
     AddSongViewController *addSongViewController = [[AddSongViewController alloc] init];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:addSongViewController];
     [self presentViewController:navController animated:YES completion:nil];

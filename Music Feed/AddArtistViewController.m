@@ -74,7 +74,21 @@ static NSString *const ReuseIdentifier = @"ReuseIdentifier";
 
 - (void)addButtonTapped
 {
-    
+    UIAlertController *songAlertController = [UIAlertController alertControllerWithTitle:@"Add New Artist"
+                                                                                  message:@"Enter a name of an artist"
+                                                                           preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancelButton = [UIAlertAction actionWithTitle:@"Cancel"
+                                                            style:UIAlertActionStyleCancel
+                                                          handler:nil];
+    UIAlertAction *addButton = [UIAlertAction actionWithTitle:@"Add"
+                                                        style:UIAlertActionStyleDefault
+                                                      handler:nil];
+    [songAlertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        textField.placeholder = @"E.g Beyonce";
+    }];
+    [songAlertController addAction:cancelButton];
+    [songAlertController addAction:addButton];
+    [self presentViewController:songAlertController animated:YES completion:nil];
 }
 
 # pragma mark - Table View Data Source
