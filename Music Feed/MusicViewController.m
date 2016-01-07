@@ -8,6 +8,7 @@
 
 #import "MusicViewController.h"
 #import "AddSongViewController.h"
+#import "AddArtistViewController.h"
 static NSString *const ReuseIdentifier = @"ReuseIdentifier";
 
 @interface MusicViewController () <UITableViewDataSource>

@@ -19,6 +19,12 @@
 		08DB1C4E1C3CD99D00624EBA /* AddSongViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DB1C4D1C3CD99D00624EBA /* AddSongViewController.m */; };
 		08DB1C4F1C3CD99D00624EBA /* AddSongViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DB1C4D1C3CD99D00624EBA /* AddSongViewController.m */; };
 		08DB1C501C3CD99D00624EBA /* AddSongViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DB1C4D1C3CD99D00624EBA /* AddSongViewController.m */; };
+		08DB1C531C3DD86A00624EBA /* AddArtistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DB1C521C3DD86A00624EBA /* AddArtistViewController.m */; };
+		08DB1C541C3DD86A00624EBA /* AddArtistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DB1C521C3DD86A00624EBA /* AddArtistViewController.m */; };
+		08DB1C551C3DD86A00624EBA /* AddArtistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DB1C521C3DD86A00624EBA /* AddArtistViewController.m */; };
+		08DB1C581C3DDB4500624EBA /* AddGenreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DB1C571C3DDB4500624EBA /* AddGenreViewController.m */; };
+		08DB1C591C3DDB4500624EBA /* AddGenreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DB1C571C3DDB4500624EBA /* AddGenreViewController.m */; };
+		08DB1C5A1C3DDB4500624EBA /* AddGenreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DB1C571C3DDB4500624EBA /* AddGenreViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +62,10 @@
 		08DB1C481C3CC39800624EBA /* MusicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicViewController.m; sourceTree = "<group>"; };
 		08DB1C4C1C3CD99D00624EBA /* AddSongViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddSongViewController.h; sourceTree = "<group>"; };
 		08DB1C4D1C3CD99D00624EBA /* AddSongViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddSongViewController.m; sourceTree = "<group>"; };
+		08DB1C511C3DD86A00624EBA /* AddArtistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddArtistViewController.h; sourceTree = "<group>"; };
+		08DB1C521C3DD86A00624EBA /* AddArtistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddArtistViewController.m; sourceTree = "<group>"; };
+		08DB1C561C3DDB4500624EBA /* AddGenreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddGenreViewController.h; sourceTree = "<group>"; };
+		08DB1C571C3DDB4500624EBA /* AddGenreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddGenreViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +168,10 @@
 				08DB1C481C3CC39800624EBA /* MusicViewController.m */,
 				08DB1C4C1C3CD99D00624EBA /* AddSongViewController.h */,
 				08DB1C4D1C3CD99D00624EBA /* AddSongViewController.m */,
+				08DB1C561C3DDB4500624EBA /* AddGenreViewController.h */,
+				08DB1C571C3DDB4500624EBA /* AddGenreViewController.m */,
+				08DB1C511C3DD86A00624EBA /* AddArtistViewController.h */,
+				08DB1C521C3DD86A00624EBA /* AddArtistViewController.m */,
 			);
 			name = Screens;
 			sourceTree = "<group>";
@@ -293,6 +307,8 @@
 			files = (
 				08DB1C491C3CC39800624EBA /* MusicViewController.m in Sources */,
 				08DB1C4E1C3CD99D00624EBA /* AddSongViewController.m in Sources */,
+				08DB1C581C3DDB4500624EBA /* AddGenreViewController.m in Sources */,
+				08DB1C531C3DD86A00624EBA /* AddArtistViewController.m in Sources */,
 				08DB1C1D1C3CC14F00624EBA /* AppDelegate.m in Sources */,
 				08DB1C1A1C3CC14F00624EBA /* main.m in Sources */,
 			);
@@ -302,9 +318,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08DB1C591C3DDB4500624EBA /* AddGenreViewController.m in Sources */,
 				08DB1C4F1C3CD99D00624EBA /* AddSongViewController.m in Sources */,
 				08DB1C4A1C3CC39800624EBA /* MusicViewController.m in Sources */,
 				08DB1C2D1C3CC14F00624EBA /* Music_FeedTests.m in Sources */,
+				08DB1C541C3DD86A00624EBA /* AddArtistViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,9 +330,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08DB1C5A1C3DDB4500624EBA /* AddGenreViewController.m in Sources */,
 				08DB1C501C3CD99D00624EBA /* AddSongViewController.m in Sources */,
 				08DB1C4B1C3CC39800624EBA /* MusicViewController.m in Sources */,
 				08DB1C381C3CC14F00624EBA /* Music_FeedUITests.m in Sources */,
+				08DB1C551C3DD86A00624EBA /* AddArtistViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
