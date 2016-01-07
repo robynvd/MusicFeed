@@ -7,10 +7,14 @@
 //
 
 #import "AddGenreViewController.h"
+#import <MagicalRecord/MagicalRecord.h>
+#import "Genre.h"
+
 static NSString *const ReuseIdentifier = @"ReuseIdentifier";
 
-@interface AddGenreViewController () <UITableViewDataSource>
+@interface AddGenreViewController () <UITableViewDataSource, NSFetchedResultsControllerDelegate>
 @property (nonatomic, strong)UITableView *genreTable;
+@property (nonatomic, strong)NSFetchedResultsController *fetchedResultsController;
 @end
 
 @implementation AddGenreViewController
@@ -19,6 +23,18 @@ static NSString *const ReuseIdentifier = @"ReuseIdentifier";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.fetchedResultsController = [Genre MR_fetchAllSortedBy:@"name"
+                                                      ascending:NO
+                                                  withPredicate:nil
+                                                        groupBy:nil
+                                                       delegate:self];
+    [NSFetchedResultsController deleteCacheWithName:@"ArtistCache"];
+    NSError *error;
+    if (![[self fetchedResultsController] performFetch:&error]) {
+        // Update to handle the error appropriately.
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+    }
+
     self.title = @"Genre";
     self.navigationController.navigationBar.translucent = NO;
     [self setupScreen];
@@ -30,6 +46,7 @@ static NSString *const ReuseIdentifier = @"ReuseIdentifier";
     self.genreTable = [[UITableView alloc] init];
     self.genreTable.translatesAutoresizingMaskIntoConstraints = NO;
     self.genreTable.dataSource = self;
+    [self.genreTable registerClass:[UITableViewCell class] forCellReuseIdentifier:ReuseIdentifier];
     [self.view addSubview:self.genreTable];
     
     //Add genre button
@@ -81,7 +98,12 @@ static NSString *const ReuseIdentifier = @"ReuseIdentifier";
                                                          handler:nil];
     UIAlertAction *addButton = [UIAlertAction actionWithTitle:@"Add"
                                                         style:UIAlertActionStyleDefault
-                                                      handler:nil];
+                                                      handler:^(UIAlertAction * _Nonnull action) {
+                                                          [MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
+                                                              Genre *genre = [Genre MR_createEntityInContext:localContext];
+                                                              genre.name = songAlertController.textFields[0].text;
+                                                          }];
+                                                      }];
     [songAlertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
         textField.placeholder = @"E.g classical";
     }];
@@ -90,23 +112,90 @@ static NSString *const ReuseIdentifier = @"ReuseIdentifier";
     [self presentViewController:songAlertController animated:YES completion:nil];
 }
 
+
 # pragma mark - Table View Data Source
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return 15;
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return [[_fetchedResultsController sections] count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ReuseIdentifier];
-    if (!cell)
-    {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ReuseIdentifier];
-    }
-    cell.backgroundColor = [UIColor whiteColor];
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    id sectionInfo = [[_fetchedResultsController sections] objectAtIndex:section];
+    return [sectionInfo numberOfObjects];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ReuseIdentifier forIndexPath:indexPath];
+    
+    // Configure the cell
+    [self configureCell:cell atIndexPath:indexPath];
+    
     return cell;
 }
 
+- (void)configureCell:(UITableViewCell*)cell atIndexPath:(NSIndexPath*)indexPath {
+    Genre *genreName = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    // Update cell with artist details
+    cell.textLabel.text = genreName.name;
+}
+
+# pragma mark - NSFetchedResultsControllerDelegate
+
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
+    [self.genreTable beginUpdates];
+}
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id )sectionInfo
+           atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
+    
+    switch(type) {
+        case NSFetchedResultsChangeInsert:
+            [self.genreTable insertSections:[NSIndexSet indexSetWithIndex:sectionIndex]
+                            withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeDelete:
+            [self.genreTable deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex]
+                            withRowAnimation:UITableViewRowAnimationFade];
+            break;
+    }
+}
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject
+       atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type
+      newIndexPath:(NSIndexPath *)newIndexPath {
+    
+    UITableView *tableView = self.genreTable;
+    
+    switch(type) {
+            
+        case NSFetchedResultsChangeInsert:
+            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
+                             withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeDelete:
+            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                             withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeUpdate:
+            [self configureCell:[tableView cellForRowAtIndexPath:indexPath]
+                    atIndexPath:indexPath];
+            break;
+            
+        case NSFetchedResultsChangeMove:
+            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                             withRowAnimation:UITableViewRowAnimationFade];
+            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
+                             withRowAnimation:UITableViewRowAnimationFade];
+            break;
+    }
+}
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    [self.genreTable endUpdates];
+}
 
 @end
