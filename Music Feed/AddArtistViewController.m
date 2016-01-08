@@ -9,9 +9,10 @@
 #import "AddArtistViewController.h"
 #import "Artist.h"
 #import <MagicalRecord/MagicalRecord.h>
+#import "AddSongViewController.h"
 static NSString *const ReuseIdentifier = @"ReuseIdentifier";
 
-@interface AddArtistViewController () <UITableViewDataSource, NSFetchedResultsControllerDelegate>
+@interface AddArtistViewController () <UITableViewDataSource, NSFetchedResultsControllerDelegate, UITableViewDelegate>
 @property (nonatomic, strong)UITableView *artistTable;
 @property (nonatomic, strong)NSFetchedResultsController *fetchedResultsController;
 @end
@@ -44,6 +45,7 @@ static NSString *const ReuseIdentifier = @"ReuseIdentifier";
     self.artistTable = [[UITableView alloc] init];
     self.artistTable.translatesAutoresizingMaskIntoConstraints = NO;
     self.artistTable.dataSource = self;
+    self.artistTable.delegate = self;
     [self.artistTable registerClass:[UITableViewCell class] forCellReuseIdentifier:ReuseIdentifier];
     [self.view addSubview:self.artistTable];
     
@@ -136,6 +138,14 @@ static NSString *const ReuseIdentifier = @"ReuseIdentifier";
     Artist *artistName = [self.fetchedResultsController objectAtIndexPath:indexPath];
     // Update cell with artist details
     cell.textLabel.text = artistName.name;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    Artist *artist = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    [self.delegate artistToAdd:artist];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 # pragma mark - NSFetchedResultsControllerDelegate

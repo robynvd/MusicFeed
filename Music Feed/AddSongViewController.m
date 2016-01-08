@@ -9,9 +9,15 @@
 #import "AddSongViewController.h"
 #import "AddArtistViewController.h"
 #import "AddGenreViewController.h"
+#import <MagicalRecord/MagicalRecord.h>
+#import "Song.h"
 static NSString *const ReuseIdentifier = @"ReuseIdentifier";
 
-@interface AddSongViewController () <UITableViewDataSource, UITableViewDelegate>
+
+@interface AddSongViewController () <UITableViewDataSource, UITableViewDelegate, AddGenreViewControllerDelegate, AddArtistViewControllerDelegate>
+@property (nonatomic, strong)UITableView *addSongTableView;
+@property (nonatomic, strong)Genre *genre;
+@property (nonatomic, strong)Artist *artist;
 @end
 
 @implementation AddSongViewController
@@ -26,7 +32,9 @@ static NSString *const ReuseIdentifier = @"ReuseIdentifier";
 
 - (void)setUpNavigationBar
 {
-    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(closeButton)];
+    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop
+                                                                                  target:self
+                                                                                  action:@selector(closeButton)];
     self.navigationItem.leftBarButtonItem = cancelButton;
     self.title = @"Add Song";
 }
@@ -36,38 +44,38 @@ static NSString *const ReuseIdentifier = @"ReuseIdentifier";
     self.view.backgroundColor = [UIColor whiteColor];
     
     //Add song table view
-    UITableView *addSongTableView = [[UITableView alloc] initWithFrame:CGRectZero
+    self.addSongTableView = [[UITableView alloc] initWithFrame:CGRectZero
                                                                  style:UITableViewStyleGrouped];
-    addSongTableView.translatesAutoresizingMaskIntoConstraints = NO;
-    addSongTableView.dataSource = self;
-    addSongTableView.delegate = self;
-    [self.view addSubview:addSongTableView];
+    self.addSongTableView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.addSongTableView.dataSource = self;
+    self.addSongTableView.delegate = self;
+    [self.view addSubview:self.addSongTableView];
     
     
     //Add song table view constraints
     [NSLayoutConstraint activateConstraints:@[
-        [NSLayoutConstraint constraintWithItem:addSongTableView
+        [NSLayoutConstraint constraintWithItem:self.addSongTableView
                                      attribute:NSLayoutAttributeTop
                                      relatedBy:NSLayoutRelationEqual
                                         toItem:self.view
                                      attribute:NSLayoutAttributeTop
                                     multiplier:1.0
                                       constant:0],
-        [NSLayoutConstraint constraintWithItem:addSongTableView
+        [NSLayoutConstraint constraintWithItem:self.addSongTableView
                                      attribute:NSLayoutAttributeBottom
                                      relatedBy:NSLayoutRelationEqual
                                         toItem:self.view
                                      attribute:NSLayoutAttributeBottom
                                     multiplier:1.0
                                       constant:0],
-        [NSLayoutConstraint constraintWithItem:addSongTableView
+        [NSLayoutConstraint constraintWithItem:self.addSongTableView
                                      attribute:NSLayoutAttributeLeft
                                      relatedBy:NSLayoutRelationEqual
                                         toItem:self.view
                                      attribute:NSLayoutAttributeLeft
                                     multiplier:1.0
                                       constant:0],
-        [NSLayoutConstraint constraintWithItem:addSongTableView
+        [NSLayoutConstraint constraintWithItem:self.addSongTableView
                                      attribute:NSLayoutAttributeRight
                                      relatedBy:NSLayoutRelationEqual
                                         toItem:self.view
@@ -151,6 +159,7 @@ static NSString *const ReuseIdentifier = @"ReuseIdentifier";
             break;
         case 1:
             cell.textLabel.text = @"Add";
+            cell.indentationLevel = 15;
             break;
         default:
             break;
@@ -174,6 +183,7 @@ static NSString *const ReuseIdentifier = @"ReuseIdentifier";
                 {
                     [tableView deselectRowAtIndexPath:indexPath animated:NO];
                     AddArtistViewController *addArtistViewController = [[AddArtistViewController alloc] init];
+                    addArtistViewController.delegate = self;
                     [self.navigationController pushViewController:addArtistViewController animated:YES];
                 }
                     break;
@@ -181,6 +191,7 @@ static NSString *const ReuseIdentifier = @"ReuseIdentifier";
                 {
                     [tableView deselectRowAtIndexPath:indexPath animated:NO];
                     AddGenreViewController *addGenreViewController = [[AddGenreViewController alloc] init];
+                    addGenreViewController.delegate = self;
                     [self.navigationController pushViewController:addGenreViewController animated:YES];
                 }
                     break;
@@ -188,12 +199,45 @@ static NSString *const ReuseIdentifier = @"ReuseIdentifier";
                     break;
             }
             break;
-        case 1:
+        case 1:{
+            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+            UITableViewCell *cell = [self.addSongTableView cellForRowAtIndexPath:indexPath];
+            UITextField *field = (UITextField *)cell.accessoryView;
+           [MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
+                Song *song = [Song MR_createEntityInContext:localContext];
+                song.name = field.text;
+                song.genre = [self.genre MR_inContext:localContext];
+                song.artist = [self.artist MR_inContext:localContext];
+            }];
+            [self dismissViewControllerAnimated:YES completion:nil];
             break;
+        }
         default:
             break;
     }
 
 }
 
+# pragma mark - addGenreDelegate
+
+- (void)genreToAdd:(Genre *)genre
+{
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:2 inSection:0];
+    UITableViewCell *cell = [self.addSongTableView cellForRowAtIndexPath:indexPath];
+    cell.textLabel.text = genre.name;
+    self.genre = genre;
+}
+
+# pragma mark - addSongDelegate
+
+- (void)artistToAdd:(Artist *)artist
+{
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+    UITableViewCell *cell = [self.addSongTableView cellForRowAtIndexPath:indexPath];
+    cell.textLabel.text = artist.name;
+    self.artist = artist;
+}
+
 @end
+
+

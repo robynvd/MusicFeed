@@ -2,14 +2,14 @@
 //  Song.h
 //  Music Feed
 //
-//  Created by Robyn Van Deventer on 7/01/2016.
+//  Created by Robyn Van Deventer on 8/01/2016.
 //  Copyright © 2016 Robyn Van Deventer. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Artist;
+@class Artist, Genre;
 
 NS_ASSUME_NONNULL_BEGIN
 

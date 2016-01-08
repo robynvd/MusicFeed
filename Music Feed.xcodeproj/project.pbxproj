@@ -29,24 +29,24 @@
 		08DB1C631C3DF07500624EBA /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 08DB1C611C3DF07500624EBA /* Model.xcdatamodeld */; };
 		08DB1C641C3DF07500624EBA /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 08DB1C611C3DF07500624EBA /* Model.xcdatamodeld */; };
 		08DB1C651C3DF07500624EBA /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 08DB1C611C3DF07500624EBA /* Model.xcdatamodeld */; };
-		08DB1C721C3E167800624EBA /* Artist+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DB1C671C3E167800624EBA /* Artist+CoreDataProperties.m */; };
-		08DB1C731C3E167800624EBA /* Artist+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DB1C671C3E167800624EBA /* Artist+CoreDataProperties.m */; };
-		08DB1C741C3E167800624EBA /* Artist+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DB1C671C3E167800624EBA /* Artist+CoreDataProperties.m */; };
-		08DB1C751C3E167800624EBA /* Artist.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DB1C691C3E167800624EBA /* Artist.m */; };
-		08DB1C761C3E167800624EBA /* Artist.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DB1C691C3E167800624EBA /* Artist.m */; };
-		08DB1C771C3E167800624EBA /* Artist.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DB1C691C3E167800624EBA /* Artist.m */; };
-		08DB1C781C3E167800624EBA /* Song+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DB1C6B1C3E167800624EBA /* Song+CoreDataProperties.m */; };
-		08DB1C791C3E167800624EBA /* Song+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DB1C6B1C3E167800624EBA /* Song+CoreDataProperties.m */; };
-		08DB1C7A1C3E167800624EBA /* Song+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DB1C6B1C3E167800624EBA /* Song+CoreDataProperties.m */; };
-		08DB1C7B1C3E167800624EBA /* Song.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DB1C6D1C3E167800624EBA /* Song.m */; };
-		08DB1C7C1C3E167800624EBA /* Song.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DB1C6D1C3E167800624EBA /* Song.m */; };
-		08DB1C7D1C3E167800624EBA /* Song.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DB1C6D1C3E167800624EBA /* Song.m */; };
-		08DB1C7E1C3E167800624EBA /* Genre+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DB1C6F1C3E167800624EBA /* Genre+CoreDataProperties.m */; };
-		08DB1C7F1C3E167800624EBA /* Genre+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DB1C6F1C3E167800624EBA /* Genre+CoreDataProperties.m */; };
-		08DB1C801C3E167800624EBA /* Genre+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DB1C6F1C3E167800624EBA /* Genre+CoreDataProperties.m */; };
-		08DB1C811C3E167800624EBA /* Genre.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DB1C711C3E167800624EBA /* Genre.m */; };
-		08DB1C821C3E167800624EBA /* Genre.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DB1C711C3E167800624EBA /* Genre.m */; };
-		08DB1C831C3E167800624EBA /* Genre.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DB1C711C3E167800624EBA /* Genre.m */; };
+		08DB1C901C3F30FD00624EBA /* Song+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DB1C851C3F30FD00624EBA /* Song+CoreDataProperties.m */; };
+		08DB1C911C3F30FD00624EBA /* Song+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DB1C851C3F30FD00624EBA /* Song+CoreDataProperties.m */; };
+		08DB1C921C3F30FD00624EBA /* Song+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DB1C851C3F30FD00624EBA /* Song+CoreDataProperties.m */; };
+		08DB1C931C3F30FD00624EBA /* Song.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DB1C871C3F30FD00624EBA /* Song.m */; };
+		08DB1C941C3F30FD00624EBA /* Song.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DB1C871C3F30FD00624EBA /* Song.m */; };
+		08DB1C951C3F30FD00624EBA /* Song.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DB1C871C3F30FD00624EBA /* Song.m */; };
+		08DB1C961C3F30FD00624EBA /* Artist+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DB1C891C3F30FD00624EBA /* Artist+CoreDataProperties.m */; };
+		08DB1C971C3F30FD00624EBA /* Artist+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DB1C891C3F30FD00624EBA /* Artist+CoreDataProperties.m */; };
+		08DB1C981C3F30FD00624EBA /* Artist+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DB1C891C3F30FD00624EBA /* Artist+CoreDataProperties.m */; };
+		08DB1C991C3F30FD00624EBA /* Artist.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DB1C8B1C3F30FD00624EBA /* Artist.m */; };
+		08DB1C9A1C3F30FD00624EBA /* Artist.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DB1C8B1C3F30FD00624EBA /* Artist.m */; };
+		08DB1C9B1C3F30FD00624EBA /* Artist.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DB1C8B1C3F30FD00624EBA /* Artist.m */; };
+		08DB1C9C1C3F30FD00624EBA /* Genre+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DB1C8D1C3F30FD00624EBA /* Genre+CoreDataProperties.m */; };
+		08DB1C9D1C3F30FD00624EBA /* Genre+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DB1C8D1C3F30FD00624EBA /* Genre+CoreDataProperties.m */; };
+		08DB1C9E1C3F30FD00624EBA /* Genre+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DB1C8D1C3F30FD00624EBA /* Genre+CoreDataProperties.m */; };
+		08DB1C9F1C3F30FD00624EBA /* Genre.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DB1C8F1C3F30FD00624EBA /* Genre.m */; };
+		08DB1CA01C3F30FD00624EBA /* Genre.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DB1C8F1C3F30FD00624EBA /* Genre.m */; };
+		08DB1CA11C3F30FD00624EBA /* Genre.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DB1C8F1C3F30FD00624EBA /* Genre.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,18 +89,18 @@
 		08DB1C561C3DDB4500624EBA /* AddGenreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddGenreViewController.h; sourceTree = "<group>"; };
 		08DB1C571C3DDB4500624EBA /* AddGenreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddGenreViewController.m; sourceTree = "<group>"; };
 		08DB1C621C3DF07500624EBA /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		08DB1C661C3E167800624EBA /* Artist+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Artist+CoreDataProperties.h"; sourceTree = "<group>"; };
-		08DB1C671C3E167800624EBA /* Artist+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Artist+CoreDataProperties.m"; sourceTree = "<group>"; };
-		08DB1C681C3E167800624EBA /* Artist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Artist.h; sourceTree = "<group>"; };
-		08DB1C691C3E167800624EBA /* Artist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Artist.m; sourceTree = "<group>"; };
-		08DB1C6A1C3E167800624EBA /* Song+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Song+CoreDataProperties.h"; sourceTree = "<group>"; };
-		08DB1C6B1C3E167800624EBA /* Song+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Song+CoreDataProperties.m"; sourceTree = "<group>"; };
-		08DB1C6C1C3E167800624EBA /* Song.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Song.h; sourceTree = "<group>"; };
-		08DB1C6D1C3E167800624EBA /* Song.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Song.m; sourceTree = "<group>"; };
-		08DB1C6E1C3E167800624EBA /* Genre+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Genre+CoreDataProperties.h"; sourceTree = "<group>"; };
-		08DB1C6F1C3E167800624EBA /* Genre+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Genre+CoreDataProperties.m"; sourceTree = "<group>"; };
-		08DB1C701C3E167800624EBA /* Genre.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Genre.h; sourceTree = "<group>"; };
-		08DB1C711C3E167800624EBA /* Genre.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Genre.m; sourceTree = "<group>"; };
+		08DB1C841C3F30FD00624EBA /* Song+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Song+CoreDataProperties.h"; sourceTree = "<group>"; };
+		08DB1C851C3F30FD00624EBA /* Song+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Song+CoreDataProperties.m"; sourceTree = "<group>"; };
+		08DB1C861C3F30FD00624EBA /* Song.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Song.h; sourceTree = "<group>"; };
+		08DB1C871C3F30FD00624EBA /* Song.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Song.m; sourceTree = "<group>"; };
+		08DB1C881C3F30FD00624EBA /* Artist+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Artist+CoreDataProperties.h"; sourceTree = "<group>"; };
+		08DB1C891C3F30FD00624EBA /* Artist+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Artist+CoreDataProperties.m"; sourceTree = "<group>"; };
+		08DB1C8A1C3F30FD00624EBA /* Artist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Artist.h; sourceTree = "<group>"; };
+		08DB1C8B1C3F30FD00624EBA /* Artist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Artist.m; sourceTree = "<group>"; };
+		08DB1C8C1C3F30FD00624EBA /* Genre+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Genre+CoreDataProperties.h"; sourceTree = "<group>"; };
+		08DB1C8D1C3F30FD00624EBA /* Genre+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Genre+CoreDataProperties.m"; sourceTree = "<group>"; };
+		08DB1C8E1C3F30FD00624EBA /* Genre.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Genre.h; sourceTree = "<group>"; };
+		08DB1C8F1C3F30FD00624EBA /* Genre.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Genre.m; sourceTree = "<group>"; };
 		4486DB3B8C33E0F615BF0727 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		57F3792D75E835F203922D9E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C32C196F0626AA5DFC90ECAF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -221,18 +221,18 @@
 		08DB1C5B1C3DED7400624EBA /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				08DB1C661C3E167800624EBA /* Artist+CoreDataProperties.h */,
-				08DB1C671C3E167800624EBA /* Artist+CoreDataProperties.m */,
-				08DB1C681C3E167800624EBA /* Artist.h */,
-				08DB1C691C3E167800624EBA /* Artist.m */,
-				08DB1C6A1C3E167800624EBA /* Song+CoreDataProperties.h */,
-				08DB1C6B1C3E167800624EBA /* Song+CoreDataProperties.m */,
-				08DB1C6C1C3E167800624EBA /* Song.h */,
-				08DB1C6D1C3E167800624EBA /* Song.m */,
-				08DB1C6E1C3E167800624EBA /* Genre+CoreDataProperties.h */,
-				08DB1C6F1C3E167800624EBA /* Genre+CoreDataProperties.m */,
-				08DB1C701C3E167800624EBA /* Genre.h */,
-				08DB1C711C3E167800624EBA /* Genre.m */,
+				08DB1C841C3F30FD00624EBA /* Song+CoreDataProperties.h */,
+				08DB1C851C3F30FD00624EBA /* Song+CoreDataProperties.m */,
+				08DB1C861C3F30FD00624EBA /* Song.h */,
+				08DB1C871C3F30FD00624EBA /* Song.m */,
+				08DB1C881C3F30FD00624EBA /* Artist+CoreDataProperties.h */,
+				08DB1C891C3F30FD00624EBA /* Artist+CoreDataProperties.m */,
+				08DB1C8A1C3F30FD00624EBA /* Artist.h */,
+				08DB1C8B1C3F30FD00624EBA /* Artist.m */,
+				08DB1C8C1C3F30FD00624EBA /* Genre+CoreDataProperties.h */,
+				08DB1C8D1C3F30FD00624EBA /* Genre+CoreDataProperties.m */,
+				08DB1C8E1C3F30FD00624EBA /* Genre.h */,
+				08DB1C8F1C3F30FD00624EBA /* Genre.m */,
 				08DB1C611C3DF07500624EBA /* Model.xcdatamodeld */,
 			);
 			name = Model;
@@ -435,19 +435,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08DB1C781C3E167800624EBA /* Song+CoreDataProperties.m in Sources */,
-				08DB1C721C3E167800624EBA /* Artist+CoreDataProperties.m in Sources */,
 				08DB1C491C3CC39800624EBA /* MusicViewController.m in Sources */,
 				08DB1C4E1C3CD99D00624EBA /* AddSongViewController.m in Sources */,
 				08DB1C581C3DDB4500624EBA /* AddGenreViewController.m in Sources */,
-				08DB1C7B1C3E167800624EBA /* Song.m in Sources */,
 				08DB1C631C3DF07500624EBA /* Model.xcdatamodeld in Sources */,
+				08DB1C991C3F30FD00624EBA /* Artist.m in Sources */,
 				08DB1C531C3DD86A00624EBA /* AddArtistViewController.m in Sources */,
 				08DB1C1D1C3CC14F00624EBA /* AppDelegate.m in Sources */,
-				08DB1C7E1C3E167800624EBA /* Genre+CoreDataProperties.m in Sources */,
-				08DB1C751C3E167800624EBA /* Artist.m in Sources */,
+				08DB1C931C3F30FD00624EBA /* Song.m in Sources */,
+				08DB1C901C3F30FD00624EBA /* Song+CoreDataProperties.m in Sources */,
+				08DB1C9C1C3F30FD00624EBA /* Genre+CoreDataProperties.m in Sources */,
+				08DB1C961C3F30FD00624EBA /* Artist+CoreDataProperties.m in Sources */,
 				08DB1C1A1C3CC14F00624EBA /* main.m in Sources */,
-				08DB1C811C3E167800624EBA /* Genre.m in Sources */,
+				08DB1C9F1C3F30FD00624EBA /* Genre.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,17 +455,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08DB1C7C1C3E167800624EBA /* Song.m in Sources */,
-				08DB1C7F1C3E167800624EBA /* Genre+CoreDataProperties.m in Sources */,
+				08DB1C941C3F30FD00624EBA /* Song.m in Sources */,
+				08DB1C9D1C3F30FD00624EBA /* Genre+CoreDataProperties.m in Sources */,
 				08DB1C591C3DDB4500624EBA /* AddGenreViewController.m in Sources */,
-				08DB1C821C3E167800624EBA /* Genre.m in Sources */,
+				08DB1CA01C3F30FD00624EBA /* Genre.m in Sources */,
 				08DB1C4F1C3CD99D00624EBA /* AddSongViewController.m in Sources */,
-				08DB1C761C3E167800624EBA /* Artist.m in Sources */,
 				08DB1C4A1C3CC39800624EBA /* MusicViewController.m in Sources */,
+				08DB1C9A1C3F30FD00624EBA /* Artist.m in Sources */,
+				08DB1C911C3F30FD00624EBA /* Song+CoreDataProperties.m in Sources */,
 				08DB1C2D1C3CC14F00624EBA /* Music_FeedTests.m in Sources */,
-				08DB1C731C3E167800624EBA /* Artist+CoreDataProperties.m in Sources */,
-				08DB1C791C3E167800624EBA /* Song+CoreDataProperties.m in Sources */,
 				08DB1C541C3DD86A00624EBA /* AddArtistViewController.m in Sources */,
+				08DB1C971C3F30FD00624EBA /* Artist+CoreDataProperties.m in Sources */,
 				08DB1C641C3DF07500624EBA /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -474,17 +474,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08DB1C7D1C3E167800624EBA /* Song.m in Sources */,
-				08DB1C801C3E167800624EBA /* Genre+CoreDataProperties.m in Sources */,
+				08DB1C951C3F30FD00624EBA /* Song.m in Sources */,
+				08DB1C9E1C3F30FD00624EBA /* Genre+CoreDataProperties.m in Sources */,
 				08DB1C5A1C3DDB4500624EBA /* AddGenreViewController.m in Sources */,
-				08DB1C831C3E167800624EBA /* Genre.m in Sources */,
+				08DB1CA11C3F30FD00624EBA /* Genre.m in Sources */,
 				08DB1C501C3CD99D00624EBA /* AddSongViewController.m in Sources */,
-				08DB1C771C3E167800624EBA /* Artist.m in Sources */,
 				08DB1C4B1C3CC39800624EBA /* MusicViewController.m in Sources */,
+				08DB1C9B1C3F30FD00624EBA /* Artist.m in Sources */,
+				08DB1C921C3F30FD00624EBA /* Song+CoreDataProperties.m in Sources */,
 				08DB1C381C3CC14F00624EBA /* Music_FeedUITests.m in Sources */,
-				08DB1C741C3E167800624EBA /* Artist+CoreDataProperties.m in Sources */,
-				08DB1C7A1C3E167800624EBA /* Song+CoreDataProperties.m in Sources */,
 				08DB1C551C3DD86A00624EBA /* AddArtistViewController.m in Sources */,
+				08DB1C981C3F30FD00624EBA /* Artist+CoreDataProperties.m in Sources */,
 				08DB1C651C3DF07500624EBA /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

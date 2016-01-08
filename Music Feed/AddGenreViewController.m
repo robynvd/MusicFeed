@@ -9,10 +9,11 @@
 #import "AddGenreViewController.h"
 #import <MagicalRecord/MagicalRecord.h>
 #import "Genre.h"
+#import "AddSongViewController.h"
 
 static NSString *const ReuseIdentifier = @"ReuseIdentifier";
 
-@interface AddGenreViewController () <UITableViewDataSource, NSFetchedResultsControllerDelegate>
+@interface AddGenreViewController () <UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate>
 @property (nonatomic, strong)UITableView *genreTable;
 @property (nonatomic, strong)NSFetchedResultsController *fetchedResultsController;
 @end
@@ -46,6 +47,7 @@ static NSString *const ReuseIdentifier = @"ReuseIdentifier";
     self.genreTable = [[UITableView alloc] init];
     self.genreTable.translatesAutoresizingMaskIntoConstraints = NO;
     self.genreTable.dataSource = self;
+    self.genreTable.delegate = self;
     [self.genreTable registerClass:[UITableViewCell class] forCellReuseIdentifier:ReuseIdentifier];
     [self.view addSubview:self.genreTable];
     
@@ -105,13 +107,20 @@ static NSString *const ReuseIdentifier = @"ReuseIdentifier";
                                                           }];
                                                       }];
     [songAlertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-        textField.placeholder = @"E.g classical";
+        textField.placeholder = @"E.g Classical";
     }];
     [songAlertController addAction:cancelButton];
     [songAlertController addAction:addButton];
     [self presentViewController:songAlertController animated:YES completion:nil];
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    Genre *genre = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    [self.delegate genreToAdd:genre];
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 # pragma mark - Table View Data Source
 

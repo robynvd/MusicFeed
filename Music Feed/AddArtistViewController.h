@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Artist.h"
+
+@protocol AddArtistViewControllerDelegate <NSObject>
+
+- (void)artistToAdd:(Artist*)artist;
+
+@end
 
 @interface AddArtistViewController : UIViewController
-
+@property (nonatomic, weak) id<AddArtistViewControllerDelegate> delegate;
 @end

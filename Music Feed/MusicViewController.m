@@ -8,13 +8,17 @@
 
 #import "MusicViewController.h"
 #import "AddSongViewController.h"
-#import "AddArtistViewController.h"
+#import "Song.h"
+#import "Artist.h"
+#import "Genre.h"
+#import <MagicalRecord/MagicalRecord.h>
 static NSString *const ReuseIdentifier = @"ReuseIdentifier";
 
-@interface MusicViewController () <UITableViewDataSource>
+@interface MusicViewController () <UITableViewDataSource, NSFetchedResultsControllerDelegate, UITableViewDelegate>
 @property (nonatomic, strong) UITableView *musicTable;
 @property (nonatomic, strong) UIBarButtonItem *addSongButton;
 @property (nonatomic, strong) UIBarButtonItem *deleteSongsButton;
+@property (nonatomic, strong)NSFetchedResultsController *fetchedResultsController;
 @end
 
 @implementation MusicViewController
@@ -24,6 +28,17 @@ static NSString *const ReuseIdentifier = @"ReuseIdentifier";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.fetchedResultsController = [Song MR_fetchAllSortedBy:@"name"
+                                                      ascending:YES
+                                                  withPredicate:nil
+                                                        groupBy:nil
+                                                       delegate:self];
+    [NSFetchedResultsController deleteCacheWithName:@"SongCache"];
+    NSError *error;
+    if (![[self fetchedResultsController] performFetch:&error]) {
+        // Update to handle the error appropriately.
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+    }
     self.title = @"Your Music";
     self.navigationController.navigationBar.translucent = NO;
     [self screenSetup];
@@ -36,6 +51,7 @@ static NSString *const ReuseIdentifier = @"ReuseIdentifier";
     self.musicTable = [[UITableView alloc] init];
     self.musicTable.translatesAutoresizingMaskIntoConstraints = NO;
     self.musicTable.dataSource = self;
+    self.musicTable.delegate = self;
     [self.view addSubview:self.musicTable];
     
     //Add song Button
@@ -43,7 +59,7 @@ static NSString *const ReuseIdentifier = @"ReuseIdentifier";
     self.navigationItem.rightBarButtonItem = self.addSongButton;
      
      //Delete songs button
-    self.deleteSongsButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:nil];
+    self.deleteSongsButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(deleteButtonTapped)];
     self.navigationItem.leftBarButtonItem = self.deleteSongsButton;
     
     [NSLayoutConstraint activateConstraints:@[
@@ -91,22 +107,98 @@ static NSString *const ReuseIdentifier = @"ReuseIdentifier";
     [self presentViewController:navController animated:YES completion:nil];
 }
 
-#pragma mark - tableView Data Source
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (void)deleteButtonTapped
 {
-    return 15;
+    [MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
+        [Song MR_truncateAllInContext:localContext];
+    }];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+# pragma mark - Table View Data Source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return [[_fetchedResultsController sections] count];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    id sectionInfo = [[_fetchedResultsController sections] objectAtIndex:section];
+    return [sectionInfo numberOfObjects];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ReuseIdentifier];
-    if (!cell)
-    {
+    if(!cell){
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ReuseIdentifier];
+        // Configure the cell
+        [self configureCell:cell atIndexPath:indexPath];
     }
-    cell.backgroundColor = [UIColor clearColor];
     return cell;
+}
+
+- (void)configureCell:(UITableViewCell*)cell atIndexPath:(NSIndexPath*)indexPath {
+    Song *song = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    // Update cell with song details
+    cell.textLabel.text = song.name;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ | %@", song.artist.name, song.genre.name];
+}
+
+# pragma mark - NSFetchedResultsControllerDelegate
+
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
+    [self.musicTable beginUpdates];
+}
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id )sectionInfo
+           atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
+    
+    switch(type) {
+        case NSFetchedResultsChangeInsert:
+            [self.musicTable insertSections:[NSIndexSet indexSetWithIndex:sectionIndex]
+                            withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeDelete:
+            [self.musicTable deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex]
+                            withRowAnimation:UITableViewRowAnimationFade];
+            break;
+    }
+}
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject
+       atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type
+      newIndexPath:(NSIndexPath *)newIndexPath {
+    
+    UITableView *tableView = self.musicTable;
+    
+    switch(type) {
+            
+        case NSFetchedResultsChangeInsert:
+            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
+                             withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeDelete:
+            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                             withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeUpdate:
+            [self configureCell:[tableView cellForRowAtIndexPath:indexPath]
+                    atIndexPath:indexPath];
+            break;
+            
+        case NSFetchedResultsChangeMove:
+            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                             withRowAnimation:UITableViewRowAnimationFade];
+            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
+                             withRowAnimation:UITableViewRowAnimationFade];
+            break;
+    }
+}
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    [self.musicTable endUpdates];
 }
 
 @end

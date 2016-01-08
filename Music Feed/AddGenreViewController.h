@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Genre.h"
+
+@protocol AddGenreViewControllerDelegate <NSObject>
+
+- (void)genreToAdd:(Genre*)genre;
+
+@end
 
 @interface AddGenreViewController : UIViewController
-
+@property (nonatomic, weak) id<AddGenreViewControllerDelegate> delegate;
 @end
